@@ -14,6 +14,6 @@ export const printFormat = (title:string, param:string | number) : void => conso
 export const fetchData = (url:string ): Promise <string> => Promise.resolve(`Data from ${url}`)
 
 //REST Params
-function introduce(salutation:string, ...names:string[]):string{
+export function introduce(salutation:string, ...names:string[]):string{
     return `${salutation} ${names.join("")}`
 }
