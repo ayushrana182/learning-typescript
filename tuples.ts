@@ -22,14 +22,14 @@ function simpleStringState(initial:string): [() => string,(v:string)=> void]{
     ]
 }
 
-const [str1getter, str1setter] = simpleStringState("hello")
-const [str2getter, str2setter] = simpleStringState("ayush")
-console.log(str2getter())
+// const [str1getter, str1setter] = simpleStringState("hello")
+// const [str2getter, str2setter] = simpleStringState("ayush")
+// console.log(str2getter())
 
-console.log(str1getter())
-str1setter("goodbye")
-console.log(str1getter())
-console.log(str2getter())
+// console.log(str1getter())
+// str1setter("goodbye")
+// console.log(str1getter())
+// console.log(str2getter())
 
 // Tuple is an array and each one of the elements can be named and have different types
 
