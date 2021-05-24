@@ -25,7 +25,7 @@ interface EventMap{
     checkout: BaseEvent
 }
 
-function sendEvent<Name extends keyof EventMap>(name:string, data: unknown): void{
+function sendEvent<Name extends keyof EventMap>(name:string, data: EventMap[Name]): void{
     console.log([name, data])
 }
 
