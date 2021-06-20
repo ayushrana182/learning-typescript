@@ -1,5 +1,5 @@
-//  // Method 1
-// Take 1
+// Method ???
+// Take 9999
 
 
 const fs = require("fs");
@@ -15,17 +15,53 @@ function Directory (path) {
       fs.statSync(`./${path}/${name}`)
     );
     
-    const sizeReader = statReader.map((stat) => {
+    const sizeReader = statReader.map((stat , id) => {
       const container = {};
-    
-      container[stat.size] = statReader.stats;
+
+            container[stat.size] = statReader.stats;    
     
       return container;
-    });
+    }); 
+
+    //******** sizes are returned in a container in this format:- [{size : undefined},{size : undefined}, ....] 
+    //******   this means I am getting an array of objects with key = size and value= undefined ???
+
+
+    // const sizesRev = Object.assign({}, ...Object.entries(sizeReader).map(([a,b]) => ({ [b]: a })))
+    // console.log(sizesRev)
+
+    const merged = Object.keys(sizeReader).reduce((newObject, key, i) => {
+      newObject[nameReader[i]] = key
+      return newObject;
+    }, {});
+    //*********** merged returns {'.git': '0', '.gitignore': '1', ...} // The Problem here is merged returns the index as value and not the sizes however sizes seem to be the key in sizeReader.
     
-    console.log(nameReader);
-    console.log(sizeReader);
-}
+    
+
+  
+    // console.log(merged) 
+    //****** sizeReader outputs: [{ '0': undefined },    { '310': undefined }, ...]  */
+    // console.log(sizesRev)
+
+    
+
+  
+
+    
+
+   const sizesss = Object.values(sizeReader)
+
+
+
+
+
+   console.log(merged)
+    // console.log(sizesss )
+   
+
+   
+}   
+
 
 console.log(Directory("../ts-basics"))
 
